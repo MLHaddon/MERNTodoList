@@ -33,6 +33,10 @@ function App() {
     setTasks(oldTasks => [...oldTasks.slice(0, idx), ...oldTasks.slice(idx + 1), ...oldTasks.slice(idx, idx + 1)]);
   }
 
+  const handleDeleteTask = (idx) => {
+    setTasks(oldTasks => [...oldTasks.slice(0, idx), ...oldTasks.slice(idx + 1)]);
+  }
+
   return (
     <div className="App">
       <div className="container">
@@ -50,7 +54,8 @@ function App() {
               isCompleted={c.isCompleted}
               key={i}
               idx={i}
-              handleClick={handleTaskClick}
+              handleItemClick={handleTaskClick}
+              handleDeleteClick={handleDeleteTask}
             />)
           }
         </div>
